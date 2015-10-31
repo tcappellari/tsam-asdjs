@@ -92,7 +92,7 @@ function avgAllRW(myarray) {
     if (myarray.length == 0) {
         return 0;
     } else {
-        myarray[0] + avgAllRW(myarray.slice(1));
+        return myarray[0] + avgAllRW(myarray.slice(1));
     }
 }
 
