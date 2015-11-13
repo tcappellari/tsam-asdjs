@@ -23,7 +23,6 @@ function sumwhilenegR(myarray) {
 }
 
 
-
 // Per Tiziano
 function ex_1_I(x) {
     return sumwhileneg(x);
@@ -66,6 +65,7 @@ function sumOddRTI(n, acc) {
 function sumOddRT(n) {
     return sumOddRTI(n, 1)
 }
+
 
 // Per Tiziano
 function ex_2_I(x) {
@@ -164,3 +164,65 @@ function ex_4_I(x, y) {
 function ex_4_R(x, y) {
     return sumIntervalR(x, y);
 }
+
+function sumAllRT(b) {
+
+    function sumAllRTail(a, acc) {
+        if (a.length == 0) {
+            return acc;
+        }
+        else {
+            return sumAllRTail(a.slice(1), acc + a[0]);
+        }
+    }
+    return sumAllRTail(b, 0);
+}
+
+function sumAllRTail(a, acc) {
+    if (a.length == 0) {
+        return acc;
+    }
+    else {
+        return sumAllRTail(a.slice(1), acc + a[0]);
+    }
+}
+
+//
+
+//Esercizio 8
+//Dato un array contenente n^2 elementi, 
+//scrivere un algoritmo che permetta di inserire tutti gli
+//oggetti in un array bidimensionale n x n.
+function bidimensionaleI(myarray) {
+    var n = Math.sqrt(myarray.length);
+    var resarray = []
+    var row = []
+    for(var i = 0; i < myarray.length; ++i) {
+        row[row.length] = myarray[i];
+        if (row.length == n) {
+            resarray.push(row);
+            row = [];
+        }
+    }
+    return resarray;
+}
+
+function magic(myarray, matrix) {
+    matrix.unshift(myarray);
+    return matrix;
+}
+
+
+function bidimensionaleRInternal(myarray, n) {
+    if (myarray.length == n) {
+        return [myarray];
+    } else {
+        return magic(myarray.slice(0, n), 
+                     bidimensionaleRInternal(myarray.slice(n), n));
+    }
+}
+
+function bidimensionaleR(myarray) {
+    return bidimensionaleRInternal(myarray, Math.sqrt(myarray.length));
+}
+
