@@ -84,3 +84,14 @@ function ex_2_I(x) {
 function ex_2_R(x) {
     return sumOddR(x);
 }
+
+function ex_2_F(x) {
+    return sumOddRF(x);
+}
+
+/*
+Dato un intervallo [a, b] con a e b due interi positivi, restituire la somma di tutti i numeri
+compresi all’interno dell’intervallo, estremi inclusi. Nel caso che b fosse minore di a,
+calcolare la somma nell’intervallo [b,a]
+*/
+
